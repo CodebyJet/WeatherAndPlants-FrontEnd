@@ -18,7 +18,14 @@ const getHeaders = () => ({
   }
 });
 
-const GET = (endpoint, headers) =>
-  headers ? axios.get(endpoint, headers) : axios.get(endpoint);
+const Access = {
+  username: process.env.username,
+  key: process.env.key,
+  password : process.env.password,
+  value : process.env.value,
+};
 
-  export const API = { GET, ENDPOINTS, getHeaders };
+const GET = (endpoint, headers, Access) =>
+  headers ? axios.get(endpoint, headers, Access) : axios.get(endpoint);
+
+  export const API = { GET, ENDPOINTS, getHeaders, Access };
