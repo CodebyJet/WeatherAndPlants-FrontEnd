@@ -15,7 +15,7 @@ export default function DisplayWeather(city) {
         console.log(error);
       });
     setIsUpdated(false);
-  }, [isUpdated]);
+  }, [city, isUpdated]);
 
   return (
     <>
