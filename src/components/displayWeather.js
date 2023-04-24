@@ -7,7 +7,7 @@ export default function DisplayWeather(city) {
   const [isUpdated, setIsUpdated] = useState(false);
 
   useEffect(() => {
-    API.GET(API.ENDPOINTS.singleWeather(city.city), API.Access)
+    API.GET(API.ENDPOINTS.currentWeather(city.city), API.Access)
       .then(({ data }) => {
         setDisplayLocation(data);
       })

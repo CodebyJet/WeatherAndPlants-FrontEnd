@@ -5,8 +5,12 @@ export const BASE_URL = 'http://api.weatherapi.com/v1'; //insert the api link he
 // http://api.weatherapi.com/v1/current.json?q=London
 
 const ENDPOINTS = {
-  singleWeather: (id) =>
-    `${BASE_URL}/current.json?key=${process.env.REACT_APP_VALUE}&q=${id}`
+  currentWeather: (id) =>
+    `${BASE_URL}/current.json?key=${process.env.REACT_APP_VALUE}&q=${id}`,
+  forecastWeather: (id) =>
+    `${BASE_URL}/forecast.json?key=${process.env.REACT_APP_VALUE}&q=${id}`,
+  historyWeather: (id, date) =>
+    `${BASE_URL}/history.json?key=${process.env.REACT_APP_VALUE}&q=${id}&dt=${date}`
 };
 
 
