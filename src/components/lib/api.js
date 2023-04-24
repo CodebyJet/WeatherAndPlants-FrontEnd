@@ -19,10 +19,10 @@ const getHeaders = () => ({
 });
 
 const Access = {
-  username: process.env.username,
-  key: process.env.key,
-  password : process.env.password,
-  value : process.env.value,
+  username: process.env.REACT_APP_USERNAME,
+  password: process.env.REACT_APP_PASSWORD,
+  key: process.env.REACT_APP_KEY,
+  value: process.env.REACT_APP_VALUE
 };
 
 const GET = (endpoint, headers, Access) =>
