@@ -22,5 +22,4 @@ const logOut = () => {
   localStorage.removeItem('token');
 };
 
-
 export const AUTH = { setToken, getToken, getPayload, logOut };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { API } from './lib/api';
+import { API } from '../lib/api';
 
 export default function DisplayPlantList() {
   const [display1AllPlants, setDisplayAllPlants] = useState(null);

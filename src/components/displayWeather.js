@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { API } from './lib/api';
+import { API } from '../lib/api';
 import { useState } from 'react';
 
 export default function DisplayWeather(city) {

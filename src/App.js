@@ -1,6 +1,10 @@
 import DisplayWeather from './components/displayWeather';
 import DisplayPlantList from './components/displayAllPlants';
 
+
+
+window.Buffer = window.Buffer || require('buffer').Buffer;
+
 function App() {
   const city = 'london';
 
