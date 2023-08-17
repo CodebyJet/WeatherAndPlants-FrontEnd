@@ -1,5 +1,6 @@
 import DisplayWeather from './components/displayWeather';
 import DisplayPlantList from './components/displayAllPlants';
+import Register from './components/Register';
 
 
 
@@ -10,10 +11,10 @@ function App() {
 
   if (city) {
     return (
-      <>
-        <DisplayWeather city={city} />
-        <DisplayPlantList />
-      </>
+      <Router>
+        <Route path='/register' element={<Register />} />
+        <Route path='/plants' element={<DisplayPlantList />} />
+      </Router>
     );
   } else {
     return <div>Loading...</div>;
