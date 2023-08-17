@@ -22,8 +22,7 @@ const ENDPOINTS = {
   login: `${process.env.REACT_APP_BASE_URL}/api/login`,
   register: `${process.env.REACT_APP_BASE_URL}/api/register`,
   allUsers: '/api/users',
-  singleUser: (id) => `${process.env.REACT_APP_BASE_URL}/api/users/${id}`,
-  cloudinary: `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`
+  singleUser: (id) => `${process.env.REACT_APP_BASE_URL}/api/users/${id}`
 };
 
 const getHeaders = () => ({
