@@ -8,7 +8,7 @@ import {Router, Route} from '@mui/material';
 window.Buffer = window.Buffer || require('buffer').Buffer;
 
 function App() {
-  const city = 'london';
+  const city = 'manchester';
 
   if (city) {
     return (
