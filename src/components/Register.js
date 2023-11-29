@@ -34,7 +34,7 @@ export default function Register() {
   const handleCreateUser = async (e) => {
     e.preventDefault();
     try {
-      const apiReqBody = { ...formFields }; // Spread the formFields object
+      const apiReqBody = { ...formFields };
 
       await API.POST(API.ENDPOINTS.register, apiReqBody);
 
@@ -135,21 +135,18 @@ export default function Register() {
           </Select>
         </div>
         <div>
-          <Select // adding in locations
+          <TextField //though maybe needs to be a selector if they spell it wrong?
             size='small'
             name='location'
             id='location'
-            label='Location'
+            type='location'
+            label='location'
             required={true}
             value={formFields.location}
             onChange={handleChange}
             error={error}
             sx={{ mb: 2 }}
-          >
-            <MenuItem value='option1'>Option 1</MenuItem>
-            <MenuItem value='option2'>Option 2</MenuItem>
-            {/* Add more options as needed */}
-          </Select>
+          />
         </div>
         <Button type='submit' sx={{ color: '#3B3D40' }}>
           Create Account
