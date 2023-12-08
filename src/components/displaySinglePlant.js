@@ -1,22 +1,29 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { API } from "../lib/api";
 
-export default function DisplaySinglePlant(plantId) {
-  const [DisplaySinglePlant, setDisplaySinglePlant] = useState(null);
+export default function DisplaySinglePlant({ plantId }) {
+  const [singlePlantData, setSinglePlantData] = useState(null);
   const [isUpdated, setIsUpdated] = useState(false);
 
   useEffect(() => {
-    API.GET(API.ENDPOINTS.currentPlant(plantId), API.Access)
+    API.GET(API.ENDPOINTS.currentPlant(plantId))
       .then(({ data }) => {
-        setDisplaySinglePlant(data);
+        setSinglePlantData(data);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
     setIsUpdated(false);
-  }, [isUpdated]);
+  }, [isUpdated, plantId]);
 
   return (
-    console.log(DisplaySinglePlant)
+    <div>
+      {singlePlantData && (
+        <div>
+          <p>{singlePlantData.common_name}</p>
+          <p>{singlePlantData.type}</p>
+        </div>
+      )}
+    </div>
   );
 }
