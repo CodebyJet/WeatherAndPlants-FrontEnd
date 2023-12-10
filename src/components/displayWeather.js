@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 import { API } from '../lib/api';
 import { useState } from 'react';
 
-export default function DisplayWeather(city) {
+export default function DisplayWeather({city}) {
   const [displayLocation, setDisplayLocation] = useState(null);
   const [isUpdated, setIsUpdated] = useState(false);
 
   useEffect(() => {
-    API.GET(API.ENDPOINTS.currentWeather(city.city), API.Access)
+    API.GET(API.ENDPOINTS.currentWeather(city), API.Access)
       .then(({ data }) => {
         setDisplayLocation(data);
       })

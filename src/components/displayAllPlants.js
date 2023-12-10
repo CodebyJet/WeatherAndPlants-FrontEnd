@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { API } from '../lib/api';
+import PlantCard from './PlantCard';
 
 export default function DisplayPlantList() {
-  const [display1AllPlants, setDisplayAllPlants] = useState(null);
+  const [displayAllPlants, setDisplayAllPlants] = useState(null);
   const [isUpdated, setIsUpdated] = useState(false);
 
   useEffect(() => {
@@ -11,24 +12,27 @@ export default function DisplayPlantList() {
         setDisplayAllPlants(data);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
     setIsUpdated(false);
   }, [isUpdated]);
 
-  function displayAsList(display1AllPlants) {
-    let listOfPlants = [];
-    for (let i = 0; i < display1AllPlants.data.length; i++) {
-      listOfPlants.push(display1AllPlants.data[i].common_name);
-    }
-    return listOfPlants;
+  console.log(displayAllPlants);
+
+  if (!displayAllPlants) {
+    return <p>Loading... before</p>;
   }
 
   return (
-    <>
-      <div>
-        {display1AllPlants && displayAsList(display1AllPlants).join(', ')}
-      </div>
-    </>
+    <div>
+      {Array.isArray(displayAllPlants?.results) && displayAllPlants.results.map((plant) => (
+        <PlantCard key={plant.id} Id={plant.id} />
+      ))}
+    </div>
   );
 }
+
+//        <div key={plant.id}>
+// <p>{plant.common_name}</p>
+// <img src={plant.default_image.medium_url} alt={plant.common_name} />
+// </div> 
