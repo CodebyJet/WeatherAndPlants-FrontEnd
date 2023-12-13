@@ -31,8 +31,3 @@ export default function DisplayPlantList() {
     </div>
   );
 }
-
-//        <div key={plant.id}>
-// <p>{plant.common_name}</p>
-// <img src={plant.default_image.medium_url} alt={plant.common_name} />
-// </div> 
