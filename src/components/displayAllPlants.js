@@ -17,17 +17,17 @@ export default function DisplayPlantList() {
     setIsUpdated(false);
   }, [isUpdated]);
 
-  console.log(displayAllPlants);
-
   if (!displayAllPlants) {
     return <p>Loading... before</p>;
   }
 
+  console.log(displayAllPlants)
   return (
     <div>
-      {Array.isArray(displayAllPlants?.results) && displayAllPlants.results.map((plant) => (
+      {displayAllPlants?.data.map((plant) => (
         <PlantCard key={plant.id} Id={plant.id} />
       ))}
     </div>
   );
+  
 }
